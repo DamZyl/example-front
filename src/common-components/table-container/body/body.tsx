@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import clsx from 'clsx';
 import React from 'react';
 import { Row, TableBodyPropGetter, TableBodyProps } from 'react-table';
 
@@ -8,18 +9,23 @@ interface BodyProps<T extends {}> {
     propGetter?: TableBodyPropGetter<T> | undefined,
   ) => TableBodyProps;
   prepareRow: (row: Row<T>) => void;
+  handleRowSelection: (row: T) => void;
 }
 
 export const Body = <T extends {}>({
   page,
   getTableBodyProps,
   prepareRow,
+  handleRowSelection,
 }: BodyProps<T>) => (
   <tbody className="divide-y divide-gray-200 bg-white" {...getTableBodyProps()}>
     {page.map((row) => {
       prepareRow(row);
       return (
-        <tr {...row.getRowProps()}>
+        <tr
+          {...row.getRowProps()}
+          onClick={() => handleRowSelection(row.original)}
+        >
           {row.cells.map((cell) => (
             <td className="p-2" {...cell.getCellProps()}>
               {cell.render('Cell')}

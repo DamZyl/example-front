@@ -39,6 +39,7 @@ export type TableContainerProps<T extends {}> = {
   data: Array<T>;
   handleSelectedRow?: (model: T) => void;
   handleSelectedAllRow?: (models: T[]) => void;
+  handleRowSelection: (model: T) => void;
 };
 
 export const TableContainer = <T extends {}>({
@@ -46,6 +47,7 @@ export const TableContainer = <T extends {}>({
   data,
   handleSelectedRow,
   handleSelectedAllRow,
+  handleRowSelection,
 }: TableContainerProps<T>) => {
   const {
     getTableProps,
@@ -135,6 +137,7 @@ export const TableContainer = <T extends {}>({
           page={page}
           getTableBodyProps={getTableBodyProps}
           prepareRow={prepareRow}
+          handleRowSelection={handleRowSelection}
         />
       </table>
       <Pagination
@@ -153,3 +156,4 @@ export const TableContainer = <T extends {}>({
     </div>
   );
 };
+

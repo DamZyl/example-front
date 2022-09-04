@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
@@ -69,3 +70,4 @@ export const Header = <T extends {}>({ headerGroups }: HeaderProps<T>) => (
     ))}
   </thead>
 );
+
