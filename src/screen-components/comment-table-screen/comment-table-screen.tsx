@@ -6,7 +6,6 @@ import { CommentTable } from './comment-table/comment-table';
 export const CommentTableScreen = () => {
   const [rowSelection, setRowSelection] = useState<CommentViewModel[]>([]);
   const [amountOfData, setAmountOfData] = useState<number | undefined>(0);
-  const [commentId, setCommentId] = useState<string | undefined>();
 
   const handleSelectedRow = (model: CommentViewModel) => {
     setRowSelection((old) => {
@@ -21,10 +20,6 @@ export const CommentTableScreen = () => {
     setRowSelection(models);
   };
 
-  const handleRowSelection = (model: CommentViewModel) => {
-    setCommentId(model.id);
-  };
-
   return (
     <div className="flex flex-col">
       <div className="flex flex-row gap-4 pt-4">
@@ -36,7 +31,6 @@ export const CommentTableScreen = () => {
         handleAmountOfData={setAmountOfData}
         handleSelectedRow={handleSelectedRow}
         handleSelectedAllRow={handleSelectedAllRows}
-        handleRowSelection={handleRowSelection}
       />
     </div>
   );
