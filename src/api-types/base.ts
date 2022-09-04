@@ -12,22 +12,26 @@
  * Do not edit the class manually.
  */
 
-import { Configuration } from "./configuration";
+import { Configuration } from './configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from "axios";
+import globalAxios, {
+  AxiosPromise,
+  AxiosInstance,
+  AxiosRequestConfig,
+} from 'axios';
 
-export const BASE_PATH = "https://localhost:7254".replace(/\/+$/, "");
+export const BASE_PATH = 'https://localhost:7254'.replace(/\/+$/, '');
 
 /**
  *
  * @export
  */
 export const COLLECTION_FORMATS = {
-  csv: ",",
-  ssv: " ",
-  tsv: "\t",
-  pipes: "|",
+  csv: ',',
+  ssv: ' ',
+  tsv: '\t',
+  pipes: '|',
 };
 
 /**
@@ -51,7 +55,7 @@ export class BaseAPI {
   constructor(
     configuration?: Configuration,
     protected basePath: string = BASE_PATH,
-    protected axios: AxiosInstance = globalAxios
+    protected axios: AxiosInstance = globalAxios,
   ) {
     if (configuration) {
       this.configuration = configuration;
@@ -67,8 +71,9 @@ export class BaseAPI {
  * @extends {Error}
  */
 export class RequiredError extends Error {
-  name: "RequiredError" = "RequiredError";
+  name: 'RequiredError' = 'RequiredError';
   constructor(public field: string, msg?: string) {
     super(msg);
   }
 }
+

@@ -13,8 +13,8 @@ export function useMutationCreateComment() {
     {
       mutationKey: [MutationKeys.CreateCommentMutation],
       onSuccess: () => {
-        queryClient.invalidateQueries([QueryKeys.GetComments]);
         console.log('Udało się');
+        return queryClient.invalidateQueries([QueryKeys.GetComments]);
       },
       onError: (error) => {
         console.log(error);

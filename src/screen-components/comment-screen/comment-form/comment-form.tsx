@@ -6,10 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import useQueryEnumCommentTypes from '../../../data-access-layer/queries/use-query-enum-comment-types';
 import useMutationCreateComment from '../../../data-access-layer/mutations/use-mutation-create-comment';
-import { CommentType } from '../../../api-types/api';
 import { LoadingOverlay } from '../../../common-components/loading-overlay/loading-overlay';
 
-// TODO: Add enum type to form schema
 const commentFormSchema = Yup.object()
   .shape({
     title: Yup.string().required('Title is required.'),
@@ -50,7 +48,7 @@ export const CommentForm = () => {
       message: data.message,
       date: data.date,
       author: data.author,
-      type: data.type as CommentType,
+      type: data.type,
     });
   };
 
