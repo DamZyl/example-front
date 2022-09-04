@@ -1,7 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { Layout } from "./common-components/layout/layout";
-import { CommentScreen } from "./screen-components/comment-screen/comment-screen";
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import { Layout } from './common-components/layout/layout';
+import { CommentScreen } from './screen-components/comment-screen/comment-screen';
 
 const App = () => (
   <div className="h-screen">

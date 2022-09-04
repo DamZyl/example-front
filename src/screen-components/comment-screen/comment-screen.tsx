@@ -3,14 +3,16 @@ import useQueryGetComments from "../../data-access-layer/queries/use-query-get-c
 import { CommentForm } from "./comment-form/comment-form";
 import dayjs from "dayjs";
 import clsx from "clsx";
+import { LoadingOverlay } from "../../common-components/loading-overlay/loading-overlay";
 
 export const CommentScreen = () => {
-  const { data: comments } = useQueryGetComments();
+  const { data: comments, isLoading } = useQueryGetComments();
 
   if (!comments) return null;
 
   return (
     <div className="flex flex-col w-full mx-auto px-16 py-10">
+      <LoadingOverlay isLoading={isLoading}/>
       <CommentForm />
       {comments.map((comment, idx) => (
         <div

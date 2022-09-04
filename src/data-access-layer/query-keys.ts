@@ -1,5 +1,5 @@
 export enum QueryKeys {
-  GetComments = "GetComments",
-  GetComment = "GetComment",
-  EnumCommentTypes = "EnumCommentTypes",
+  GetComments = 'GetComments',
+  GetComment = 'GetComment',
+  EnumCommentTypes = 'EnumCommentTypes',
 }

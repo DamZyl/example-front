@@ -1,8 +1,8 @@
-import React from "react";
-import clsx from "clsx";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import clsx from 'clsx';
+import { NavLink } from 'react-router-dom';
 
-const navigation = [{ name: "Komentarze", path: "/comments" }];
+const navigation = [{ name: 'Komentarze', path: '/comments' }];
 
 export const SideNav = () => (
   <div className="hidden md:flex md:w-64 md:flex-col md:inset-y-0">
@@ -14,8 +14,8 @@ export const SideNav = () => (
               key={item.path}
               className={({ isActive }) =>
                 clsx([
-                  "text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md",
-                  isActive && "bg-indigo-800 text-white",
+                  'text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md',
+                  isActive && 'bg-indigo-800 text-white',
                 ])
               }
               to={item.path}

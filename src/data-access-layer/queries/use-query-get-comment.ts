@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { commentApi } from "../api-client";
-import { QueryKeys } from "../query-keys";
+import { useQuery } from '@tanstack/react-query';
+import { commentApi } from '../api-client';
+import { QueryKeys } from '../query-keys';
 
 export function useQueryGetComment(id: string) {
   const query = useQuery(
@@ -10,7 +10,7 @@ export function useQueryGetComment(id: string) {
       onError: (error) => {
         console.log(error);
       },
-    }
+    },
   );
   return query;
 }

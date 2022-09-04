@@ -1,4 +1,4 @@
-import { CommentApi, EnumApi } from "../api-types";
+import { CommentApi, EnumApi } from '../api-types';
 
-export const commentApi = new CommentApi(undefined, "");
-export const enumApi = new EnumApi(undefined, "");
+export const commentApi = new CommentApi(undefined, '');
+export const enumApi = new EnumApi(undefined, '');

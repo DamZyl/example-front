@@ -1,3 +1,3 @@
 export enum MutationKeys {
-  CreateCommentMutation = "CreateCommentMutation",
+  CreateCommentMutation = 'CreateCommentMutation',
 }
