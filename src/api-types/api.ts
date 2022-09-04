@@ -210,6 +210,39 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commentIdPut: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('commentIdPut', 'id', id)
+            const localVarPath = `/Comment/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -272,6 +305,16 @@ export const CommentApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async commentIdPut(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commentIdPut(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -306,6 +349,15 @@ export const CommentApiFactory = function (configuration?: Configuration, basePa
          */
         commentIdGet(id: string, options?: any): AxiosPromise<CommentViewModel> {
             return localVarFp.commentIdGet(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commentIdPut(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.commentIdPut(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -345,6 +397,17 @@ export class CommentApi extends BaseAPI {
      */
     public commentIdGet(id: string, options?: AxiosRequestConfig) {
         return CommentApiFp(this.configuration).commentIdGet(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CommentApi
+     */
+    public commentIdPut(id: string, options?: AxiosRequestConfig) {
+        return CommentApiFp(this.configuration).commentIdPut(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
