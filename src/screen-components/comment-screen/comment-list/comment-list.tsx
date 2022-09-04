@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommentViewModel } from '../../api-types/api';
+import { CommentViewModel } from '../../../api-types/api';
 import { CommentCard } from '../comment-card/comment-card';
 
 interface CommentListProps {
@@ -13,3 +13,4 @@ export const CommentList = ({ comments }: CommentListProps) => (
     ))}
   </>
 );
+

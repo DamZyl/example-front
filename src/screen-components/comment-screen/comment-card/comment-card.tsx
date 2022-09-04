@@ -2,7 +2,7 @@
 import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import React from 'react';
-import { CommentViewModel } from '../../api-types/api';
+import { CommentViewModel } from '../../../api-types/api';
 
 interface CommentCardProps {
   comment: CommentViewModel;
@@ -25,3 +25,4 @@ export const CommentCard = ({ comment }: CommentCardProps) => (
     <p className="text-mg italic self-end">{comment.author}</p>
   </div>
 );
+
