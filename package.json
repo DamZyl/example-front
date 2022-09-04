@@ -29,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "model-generate": "yarn run openapi-generator-cli generate -i http://localhost:5263/swagger/v1/swagger.json -g typescript-axios -o ./src/api-types"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.5.1",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
