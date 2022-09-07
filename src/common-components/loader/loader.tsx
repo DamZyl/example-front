@@ -13,4 +13,3 @@ export const Loader = () => {
     </div>
   );
 };
-

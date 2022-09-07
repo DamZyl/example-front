@@ -35,4 +35,3 @@ export const CommentTableScreen = () => {
     </div>
   );
 };
-

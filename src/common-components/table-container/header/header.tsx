@@ -70,4 +70,3 @@ export const Header = <T extends {}>({ headerGroups }: HeaderProps<T>) => (
     ))}
   </thead>
 );
-

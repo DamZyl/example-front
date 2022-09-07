@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import clsx from 'clsx';
 import React from 'react';
 import { Row, TableBodyPropGetter, TableBodyProps } from 'react-table';
 
