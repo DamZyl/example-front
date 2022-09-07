@@ -24,6 +24,20 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 /**
  * 
  * @export
+ * @enum {string}
+ */
+
+export const CommentType = {
+    NUMBER_0: 0,
+    NUMBER_1: 1
+} as const;
+
+export type CommentType = typeof CommentType[keyof typeof CommentType];
+
+
+/**
+ * 
+ * @export
  * @interface CommentViewModel
  */
 export interface CommentViewModel {
@@ -96,10 +110,10 @@ export interface CreateCommentInput {
     'author'?: string | null;
     /**
      * 
-     * @type {number}
+     * @type {CommentType}
      * @memberof CreateCommentInput
      */
-    'type'?: number;
+    'type'?: CommentType;
 }
 /**
  * 

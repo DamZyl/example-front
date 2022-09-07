@@ -8,6 +8,7 @@
     "@heroicons/react": "^2.0.10",
     "@hookform/resolvers": "^2.9.7",
     "@tanstack/react-query": "^4.2.3",
+    "@tanstack/react-query-devtools": "^4.2.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -56,7 +57,6 @@
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.5.1",
-    "@tanstack/react-query-devtools": "^4.2.3",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.8",
@@ -73,4 +73,3 @@
     "tailwindcss": "^3.1.8"
   }
 }
-

@@ -1,6 +1,5 @@
 {
   "semi": true,
-  "endOfLine": "crlf",
   "trailingComma": "all",
   "singleQuote": true,
   "printWidth": 80,

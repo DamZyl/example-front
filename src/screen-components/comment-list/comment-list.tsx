@@ -9,7 +9,7 @@ interface CommentListProps {
 export const CommentList = ({ comments }: CommentListProps) => (
   <>
     {comments.map((comment) => (
-      <CommentCard comment={comment} />
+      <CommentCard key={comment.id} comment={comment} />
     ))}
   </>
 );

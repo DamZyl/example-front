@@ -9,6 +9,7 @@ import useMutationCreateComment from '../../../data-access-layer/mutations/use-m
 import { LoadingOverlay } from '../../../common-components/loading-overlay/loading-overlay';
 import { FormInput } from '../../../common-components/inputs/form-input/form-input';
 import { FormSelectForEnumInput } from '../../../common-components/inputs/form-select-for-enum-input/form-select-for-enum-input';
+import { CommentType } from '../../../api-types/api';
 
 const commentFormSchema = Yup.object()
   .shape({
@@ -50,7 +51,7 @@ export const CommentForm = () => {
       message: data.message,
       date: data.date,
       author: data.author,
-      type: data.type,
+      type: data.type as CommentType,
     });
   };
 
