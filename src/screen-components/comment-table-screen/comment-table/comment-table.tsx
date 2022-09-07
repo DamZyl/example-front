@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Column } from 'react-table';
 import { CommentViewModel } from '../../../api-types/api';
 import { LoadingOverlay } from '../../../common-components/loading-overlay/loading-overlay';
@@ -25,8 +25,7 @@ export const CommentTable = ({
   handleSelectedRow,
   handleSelectedAllRow,
 }: CommentTableProps) => {
-  const [commentId, setCommentId] = useState<string | undefined>();
-  //   TODO: add react-query
+  const [commentId, setCommentId] = useState<string>('test');
 
   const { data } = useQueryGetComments();
   const { mutate, isLoading } = useMutationUpdateComment();
@@ -36,7 +35,8 @@ export const CommentTable = ({
   }, [data?.length, handleAmountOfData]);
 
   const handleRowSelection = (model: CommentViewModel) => {
-    setCommentId(model.id);
+    console.log(model.id);
+    setCommentId(model.id as string);
   };
 
   const columns = useMemo<Column<CommentViewModel>[]>(
@@ -63,7 +63,7 @@ export const CommentTable = ({
           type.value === 'Negatywny' ? (
             <button
               type="button"
-              className="bg-red-500 text-wh"
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => mutate(commentId as string)}
             >
               Negatywny
@@ -71,7 +71,7 @@ export const CommentTable = ({
           ) : (
             <button
               type="button"
-              className="bg-green-500 text-wh"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => mutate(commentId as string)}
             >
               Pozytywny

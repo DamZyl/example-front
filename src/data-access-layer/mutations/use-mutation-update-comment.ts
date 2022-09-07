@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { CommentApi } from '../../api-types';
+import { CommentApi } from '../../api-types/api';
 
 export function useMutationUpdateComment() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
-    (id: string) => new CommentApi(undefined).commentIdPut(id),
+    (id: string) => new CommentApi().commentCommentIdPut(id),
     {
       mutationKey: ['update-comment'],
       onSuccess: () => {
