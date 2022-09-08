@@ -15,7 +15,7 @@ export const PaginationInformationText = ({
   pageOptionsLength,
   pageCount,
 }: PaginationInformationTextProps) => (
-  <div className="flex flex-row gap-3 align-middle justify-center">
+  <div className="flex flex-row gap-3 align-middle justify-center self-center">
     <p className="text-sm text-gray-700">
       <span className="font-bold">{pageIndex * pageSize + 1}</span>
       &nbsp;&ndash;&nbsp;
