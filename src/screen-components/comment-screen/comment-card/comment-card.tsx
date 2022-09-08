@@ -25,4 +25,3 @@ export const CommentCard = ({ comment }: CommentCardProps) => (
     <p className="text-mg italic self-end">{comment.author}</p>
   </div>
 );
-

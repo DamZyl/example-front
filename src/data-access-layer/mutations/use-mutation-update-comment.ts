@@ -1,5 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { CommentApi } from '../../api-types/api';
+import { MutationKeys } from '../mutation-keys';
+import { QueryKeys } from '../query-keys';
 
 export function useMutationUpdateComment() {
   const queryClient = useQueryClient();
@@ -7,15 +9,14 @@ export function useMutationUpdateComment() {
   const mutation = useMutation(
     (id: string) => new CommentApi().commentCommentIdPut(id),
     {
-      mutationKey: ['update-comment'],
+      mutationKey: [MutationKeys.UpdateCommentMutation],
       onSuccess: () => {
-        console.log('Udało się');
-        // logic
-        return queryClient.invalidateQueries(['get-comments']);
+        console.log('Success');
+        return queryClient.invalidateQueries([QueryKeys.GetComments]);
+        // queryClient.invalidateQueries([QueryKeys.GetComments]);
       },
       onError: (error) => {
         console.log(error);
-        // errors
       },
     },
   );

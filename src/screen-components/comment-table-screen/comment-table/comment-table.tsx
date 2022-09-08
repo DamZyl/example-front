@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Column } from 'react-table';
 import { CommentViewModel } from '../../../api-types/api';
 import { LoadingOverlay } from '../../../common-components/loading-overlay/loading-overlay';
@@ -13,31 +13,24 @@ import useQueryGetComments from '../../../data-access-layer/queries/use-query-ge
 
 type CommentTableProps = {
   handleAmountOfData: (total: number | undefined) => void;
-} & Required<
-  Pick<
-    TableContainerProps<CommentViewModel>,
-    'handleSelectedRow' | 'handleSelectedAllRow'
-  >
+  commentId?: string;
+} & Pick<
+  TableContainerProps<CommentViewModel>,
+  'handleSelectedRow' | 'handleSelectedAllRow'
 >;
 
 export const CommentTable = ({
   handleAmountOfData,
   handleSelectedRow,
   handleSelectedAllRow,
+  commentId,
 }: CommentTableProps) => {
-  const [commentId, setCommentId] = useState<string>('test');
-
   const { data } = useQueryGetComments();
   const { mutate, isLoading } = useMutationUpdateComment();
 
   useEffect(() => {
     handleAmountOfData(data?.length);
   }, [data?.length, handleAmountOfData]);
-
-  const handleRowSelection = (model: CommentViewModel) => {
-    console.log(model.id);
-    setCommentId(model.id as string);
-  };
 
   const columns = useMemo<Column<CommentViewModel>[]>(
     () => [
@@ -92,7 +85,6 @@ export const CommentTable = ({
         data={data}
         handleSelectedRow={handleSelectedRow}
         handleSelectedAllRow={handleSelectedAllRow}
-        handleRowSelection={handleRowSelection}
       />
     </div>
   );

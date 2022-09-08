@@ -1,14 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import { CommentApi } from '../../api-types';
+import { commentApi } from '../api-client';
+import { QueryKeys } from '../query-keys';
 
 export function useQueryGetComments() {
   const query = useQuery(
-    ['get-comments'],
-    async () => (await new CommentApi(undefined).commentGet()).data,
+    [QueryKeys.GetComments],
+    async () => (await commentApi.commentGet()).data,
     {
       onError: (error) => {
         console.log(error);
-        // errors
       },
     },
   );

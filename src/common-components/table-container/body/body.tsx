@@ -8,23 +8,18 @@ interface BodyProps<T extends {}> {
     propGetter?: TableBodyPropGetter<T> | undefined,
   ) => TableBodyProps;
   prepareRow: (row: Row<T>) => void;
-  handleRowSelection: (row: T) => void;
 }
 
 export const Body = <T extends {}>({
   page,
   getTableBodyProps,
   prepareRow,
-  handleRowSelection,
 }: BodyProps<T>) => (
   <tbody className="divide-y divide-gray-200 bg-white" {...getTableBodyProps()}>
     {page.map((row) => {
       prepareRow(row);
       return (
-        <tr
-          {...row.getRowProps()}
-          onClick={() => handleRowSelection(row.original)}
-        >
+        <tr {...row.getRowProps()}>
           {row.cells.map((cell) => (
             <td className="p-2" {...cell.getCellProps()}>
               {cell.render('Cell')}

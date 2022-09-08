@@ -1,17 +1,20 @@
-import { useMutation } from '@tanstack/react-query';
+import { QueryClient, useMutation } from '@tanstack/react-query';
+import { CreateCommentInput } from '../../api-types/api';
+import { commentApi } from '../api-client';
+import { MutationKeys } from '../mutation-keys';
+import { QueryKeys } from '../query-keys';
 
 export function useMutationCreateComment() {
+  const queryClient = new QueryClient();
+
   const mutation = useMutation(
-    // fn,
+    (createCommentInput?: CreateCommentInput) =>
+      commentApi.commentPost(createCommentInput),
     {
-      mutationKey: [],
+      mutationKey: [MutationKeys.CreateCommentMutation],
       onSuccess: () => {
-        console.log('Udało się');
-        // logic
-      },
-      onError: (error) => {
-        console.log(error);
-        // errors
+        console.log('Success');
+        return queryClient.invalidateQueries([QueryKeys.GetComments]);
       },
     },
   );

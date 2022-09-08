@@ -13,4 +13,3 @@ export const CommentList = ({ comments }: CommentListProps) => (
     ))}
   </>
 );
-
