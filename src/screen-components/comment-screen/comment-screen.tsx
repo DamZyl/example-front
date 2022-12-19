@@ -12,7 +12,7 @@ export const CommentScreen = () => {
   return (
     <>
       <LoadingOverlay isLoading={isLoading} />
-      <div className="flex flex-col w-full mx-auto px-16 py-10">
+      <div className="flex flex-row w-full mx-auto px-16 py-10">
         <CommentForm />
         <CommentList comments={comments} />
       </div>

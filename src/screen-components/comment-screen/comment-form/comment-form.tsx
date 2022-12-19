@@ -43,7 +43,6 @@ export const CommentForm = () => {
   });
 
   const onSubmit: SubmitHandler<CommentFormType> = (data) => {
-    console.log(data);
     createCommentMutation({
       title: data.title,
       message: data.message,
@@ -120,7 +119,7 @@ export const CommentForm = () => {
               placeholder="Autor"
             />
             <p className="text-red-500 mt-4 text-base">
-              {errors.message?.message}
+              {errors.author?.message}
             </p>
           </div>
           <div>

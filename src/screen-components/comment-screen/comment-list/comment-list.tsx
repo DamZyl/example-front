@@ -7,9 +7,9 @@ interface CommentListProps {
 }
 
 export const CommentList = ({ comments }: CommentListProps) => (
-  <>
+  <div className="flex flex-col w-full mx-auto px-16 py-10">
     {comments.map((comment) => (
       <CommentCard comment={comment} />
     ))}
-  </>
+  </div>
 );
