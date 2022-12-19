@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
 import { CommentApi } from '../../api-types/api';
 import { MutationKeys } from '../mutation-keys';
 import { QueryKeys } from '../query-keys';
@@ -10,13 +11,12 @@ export function useMutationUpdateComment() {
     (id: string) => new CommentApi().commentCommentIdPut(id),
     {
       mutationKey: [MutationKeys.UpdateCommentMutation],
-      onSuccess: () => {
-        console.log('Success');
-        return queryClient.invalidateQueries([QueryKeys.GetComments]);
-        // queryClient.invalidateQueries([QueryKeys.GetComments]);
-      },
+      onSuccess: () => queryClient.invalidateQueries([QueryKeys.GetComments]),
       onError: (error) => {
-        console.log(error);
+        if (axios.isAxiosError(error)) {
+          console.log(error.message);
+        }
+        // other guards
       },
     },
   );

@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { enumApi } from '../api-client';
 import { QueryKeys } from '../query-keys';
 
@@ -8,7 +9,10 @@ export function useQueryEnumCommentTypes() {
     async () => (await enumApi.enumGet()).data,
     {
       onError: (error) => {
-        console.log(error);
+        if (axios.isAxiosError(error)) {
+          console.log(error.message);
+        }
+        // other guards
       },
     },
   );
