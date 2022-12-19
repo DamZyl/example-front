@@ -52,6 +52,7 @@ export const CommentTable = ({
       {
         Header: 'Akcja',
         accessor: 'type',
+        disableFilters: true,
         Cell: (type) =>
           type.value === 'Negatywny' ? (
             <button
