@@ -25,12 +25,12 @@ export const CommentTable = ({
   handleSelectedAllRow,
   commentId,
 }: CommentTableProps) => {
-  const { data } = useQueryGetComments();
+  const { data = [] } = useQueryGetComments();
   const { mutate, isLoading } = useMutationUpdateComment();
 
   useEffect(() => {
-    handleAmountOfData(data?.length);
-  }, [data?.length, handleAmountOfData]);
+    handleAmountOfData(data.length);
+  }, [data.length, handleAmountOfData]);
 
   const columns = useMemo<Column<CommentViewModel>[]>(
     () => [
@@ -75,8 +75,6 @@ export const CommentTable = ({
     ],
     [commentId, mutate],
   );
-
-  if (!data) return null;
 
   return (
     <div className="flex min-h-screen">

@@ -6,7 +6,8 @@ import { QueryKeys } from '../query-keys';
 export function useQueryGetComment(commentId: string) {
   const query = useQuery(
     [QueryKeys.GetComment, commentId],
-    async () => (await commentApi.commentIdGet(commentId)).data,
+    async ({ signal }) =>
+      (await commentApi.commentIdGet(commentId, { signal })).data,
     {
       onError: (error) => {
         if (axios.isAxiosError(error)) {

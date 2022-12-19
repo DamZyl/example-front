@@ -4,7 +4,7 @@ import { UseFormRegisterReturn } from 'react-hook-form';
 import { EnumViewModel } from '../../../api-types';
 
 type FormSelectForEnumInputProps = {
-  data?: EnumViewModel[];
+  data: EnumViewModel[];
   register: UseFormRegisterReturn;
   fieldName: string;
   label: string;

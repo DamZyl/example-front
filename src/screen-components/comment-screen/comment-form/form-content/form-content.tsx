@@ -21,7 +21,7 @@ const commentFormSchema = Yup.object({
 type CommentFormType = Yup.InferType<typeof commentFormSchema>;
 
 export const FormContent = () => {
-  const { data: commentTypesEnum, isLoading: commentTypesLoading } =
+  const { data: commentTypesEnum = [], isLoading: commentTypesLoading } =
     useQueryEnumCommentTypes();
   const { mutate: createCommentMutation, isLoading: createCommentLoading } =
     useMutationCreateComment();

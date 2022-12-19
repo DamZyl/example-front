@@ -1,15 +1,17 @@
 import React from 'react';
-import { CommentViewModel } from '../../../api-types/api';
+import { LoadingOverlay } from '../../../common-components/loading-overlay/loading-overlay';
+import useQueryGetComments from '../../../data-access-layer/queries/use-query-get-comments';
 import { CommentCard } from '../comment-card/comment-card';
 
-interface CommentListProps {
-  comments: CommentViewModel[];
-}
+export const CommentList = () => {
+  const { data: comments = [], isLoading } = useQueryGetComments();
 
-export const CommentList = ({ comments }: CommentListProps) => (
-  <div className="flex flex-col w-full mx-auto px-16 py-10">
-    {comments.map((comment) => (
-      <CommentCard comment={comment} />
-    ))}
-  </div>
-);
+  return (
+    <div className="flex flex-col w-full mx-auto px-16 py-10">
+      <LoadingOverlay isLoading={isLoading} />
+      {comments.map((comment) => (
+        <CommentCard key={comment.id} comment={comment} />
+      ))}
+    </div>
+  );
+};
