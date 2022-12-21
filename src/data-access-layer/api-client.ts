@@ -8,25 +8,6 @@ const baseHeaders = {
   'Content-Type': 'application/json',
 };
 
-const baseConfiguration = new Configuration({
-  basePath,
-  baseOptions: {
-    timeout: TIME_OUT_TIME,
-    headers: baseHeaders,
-  },
-});
+// TODO: Config
 
-// const bearerConfigParams = (apiKey?: string): Configuration =>
-//   new Configuration({
-//     basePath,
-//     baseOptions: {
-//       timeout: TIME_OUT_TIME,
-//       headers: {
-//         ...baseHeaders,
-//         Authorization: `Bearer ${apiKey}`,
-//       },
-//     },
-//   });
-
-export const commentApi = new CommentApi(baseConfiguration);
-export const enumApi = new EnumApi(baseConfiguration);
+// TODO: Api

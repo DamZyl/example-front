@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { FormHeader } from './form-header/form-header';
 import { FormContent } from './form-content/form-content';
