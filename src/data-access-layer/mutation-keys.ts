@@ -1,3 +1,4 @@
-export enum MutationKeys {
+export const enum MutationKeys {
+  UpdateCommentMutation = 'UpdateCommentMutation',
   CreateCommentMutation = 'CreateCommentMutation',
 }

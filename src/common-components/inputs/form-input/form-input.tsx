@@ -1,28 +1,40 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { HTMLInputTypeAttribute } from 'react';
-import { FormSelectForEnumInputType } from '../form-select-for-enum-input/form-select-for-enum-input';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
-type FormInputType = {
-  type?: HTMLInputTypeAttribute;
-} & Omit<FormSelectForEnumInputType, 'data'>;
+type FormInputProps = {
+  register: UseFormRegisterReturn;
+  fieldName: string;
+  label: string;
+  errorMessage?: string;
+} & React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
 
 export const FormInput = ({
   register,
   fieldName,
   label,
   errorMessage,
+  readOnly = false,
   type = 'text',
-}: FormInputType) => (
-  <div className="flex flex-col w-full">
-    <label htmlFor={fieldName} className="text-mg font-bold text-gray-900">
+  ...rest
+}: FormInputProps) => (
+  <>
+    <label htmlFor={fieldName} className="sr-only">
       {label}
     </label>
     <input
       {...register}
+      readOnly={readOnly}
       type={type}
-      placeholder="Tytuł"
-      className="my-2 p-2 h-10 border-2 border-gray-100 w-full rounded-lg focus:outline-none"
+      className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+      placeholder={label}
+      {...rest}
     />
-    <p className="my-2 text-sm font-bold text-red-500">{errorMessage}</p>
-  </div>
+    <p className="text-red-500 mt-4 text-base">{errorMessage}</p>
+  </>
 );

@@ -2,7 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 
-const navigation = [{ name: 'Komentarze', path: '/comments' }];
+const navigation = [
+  { name: 'Komentarze', path: '/comments' },
+  { name: 'Tabela komentarzy', path: '/table-comments' },
+];
 
 export const SideNav = () => (
   <div className="hidden md:flex md:w-64 md:flex-col md:inset-y-0">

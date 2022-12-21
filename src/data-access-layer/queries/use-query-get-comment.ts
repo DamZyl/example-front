@@ -1,14 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { commentApi } from '../api-client';
 import { QueryKeys } from '../query-keys';
 
-export function useQueryGetComment(id: string) {
+export function useQueryGetComment(commentId: string) {
   const query = useQuery(
-    [QueryKeys.GetComment, id],
-    async () => (await commentApi.commentIdGet(id)).data,
+    [QueryKeys.GetComment, commentId],
+    async ({ signal }) =>
+      (await commentApi.commentIdGet(commentId, { signal })).data,
     {
       onError: (error) => {
-        console.log(error);
+        if (axios.isAxiosError(error)) {
+          console.log(error.message);
+        }
+        // other guards
       },
     },
   );
