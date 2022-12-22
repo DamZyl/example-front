@@ -1,4 +1,4 @@
-import { QueryClient, useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { CreateCommentInput } from '../../api-types/api';
 import { commentApi } from '../api-client';
@@ -6,7 +6,7 @@ import { MutationKeys } from '../mutation-keys';
 import { QueryKeys } from '../query-keys';
 
 export function useMutationCreateComment() {
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const mutation = useMutation(
     (createCommentInput?: CreateCommentInput) =>

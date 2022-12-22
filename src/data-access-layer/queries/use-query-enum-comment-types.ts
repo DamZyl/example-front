@@ -6,7 +6,7 @@ import { QueryKeys } from '../query-keys';
 export function useQueryEnumCommentTypes() {
   const query = useQuery(
     [QueryKeys.GetEnumCommentTypes],
-    async () => (await enumApi.enumGet()).data,
+    async ({ signal }) => (await enumApi.enumGet({ signal })).data,
     {
       onError: (error) => {
         if (axios.isAxiosError(error)) {
