@@ -9,5 +9,26 @@ const baseHeaders = {
 };
 
 // TODO: Config
+const baseConfig = new Configuration({
+  basePath,
+  baseOptions: {
+    timeout: TIME_OUT_TIME,
+    headers: baseHeaders,
+  },
+});
+
+// const tokenConfig = (token: string) =>
+//   new Configuration({
+//     basePath,
+//     baseOptions: {
+//       timeout: TIME_OUT_TIME,
+//       headers: {
+//         ...baseHeaders,
+//         Authorization: `Bearer ${token}`,
+//       },
+//     },
+//   });
 
 // TODO: Api
+export const commentApi = new CommentApi(baseConfig);
+export const enumApi = new EnumApi(baseConfig);
