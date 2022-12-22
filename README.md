@@ -33,6 +33,8 @@
 
 ## Snippets
 
+**Code -> Preferences -> Configure User Snippets -> ts files**
+
 ```json
 {
   "React-Query Mutation": {
