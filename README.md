@@ -58,7 +58,6 @@
       "  return mutation;",
       "}",
       "",
-      "export default useMutation$1;",
       ""
     ],
     "description": "Create react-query mutation"
@@ -81,7 +80,6 @@
       "  return query;",
       "}",
       "",
-      "export default useQuery$1;",
       ""
     ],
     "description": "Create react-query query"
