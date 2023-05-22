@@ -32,7 +32,7 @@ export const FormSelectForEnumInput = ({
     >
       {data?.map((item) => (
         <option key={item.key} value={item.key}>
-          {item.enumTypeName}
+          {item.value}
         </option>
       ))}
     </select>

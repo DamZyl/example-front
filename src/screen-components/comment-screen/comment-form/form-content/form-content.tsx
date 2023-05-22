@@ -11,11 +11,11 @@ import useMutationCreateComment from '../../../../data-access-layer/mutations/us
 import useQueryEnumCommentTypes from '../../../../data-access-layer/queries/use-query-enum-comment-types';
 
 const commentFormSchema = Yup.object({
-  title: Yup.string().required('Tytuł jest wymagany.'),
-  message: Yup.string().required('Wiadomość jest wymagana.'),
-  date: Yup.string().required('Data jest wymagana.'),
-  author: Yup.string().required('Autor jest wymagany.'),
-  type: Yup.mixed<CommentType>().required('Typ jest wymagany.'),
+  title: Yup.string().required('Title is required.'),
+  message: Yup.string().required('Message is required.'),
+  date: Yup.string().required('Date is required.'),
+  author: Yup.string().required('Author is required.'),
+  type: Yup.mixed<CommentType>().required('Type is required.'),
 });
 
 type CommentFormType = Yup.InferType<typeof commentFormSchema>;
@@ -62,35 +62,35 @@ export const FormContent = () => {
         <FormInput
           register={register('title')}
           fieldName="title"
-          label="Tytuł"
+          label="Title"
           errorMessage={errors.title?.message}
         />
         <FormInput
           register={register('message')}
           fieldName="message"
-          label="Wiadomość"
+          label="Message"
           errorMessage={errors.message?.message}
         />
         <FormInput
           register={register('date')}
           fieldName="date"
           type="date"
-          label="Data"
+          label="Date"
           errorMessage={errors.date?.message}
         />
         <FormInput
           register={register('author')}
           fieldName="author"
-          label="Autor"
+          label="Author"
           errorMessage={errors.author?.message}
         />
         <FormSelectForEnumInput
           data={commentTypesEnum}
           register={register('type')}
           fieldName="type"
-          label="Typ"
+          label="Type"
         />
-        <Button text="Dodaj komentarz" type="submit" disabled={!isValid} />
+        <Button text="Add" type="submit" disabled={!isValid} />
       </form>
     </>
   );

@@ -22,11 +22,11 @@ export const PaginationInformationText = ({
       <span className="font-bold">{pageIndex * pageSize + pageLength}</span>
       {pageOptionsLength && (
         <>
-          <span>&nbsp;spośród&nbsp;</span>
+          <span>&nbsp;out of&nbsp;</span>
           <span className="font-bold">{pageCount}</span>
         </>
       )}
     </p>
-    <p className="text-sm text-gray-700">Wyświetl</p>
+    <p className="text-sm text-gray-700">Display</p>
   </div>
 );

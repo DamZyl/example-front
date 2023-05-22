@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Komentarze', path: '/comments' },
-  { name: 'Tabela komentarzy', path: '/table-comments' },
+  { name: 'Comments', path: '/comments' },
+  { name: 'Table', path: '/table-comments' },
 ];
 
 export const SideNav = () => (

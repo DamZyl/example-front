@@ -35,22 +35,22 @@ export const CommentTable = ({
   const columns = useMemo<Column<CommentViewModel>[]>(
     () => [
       {
-        Header: 'Tytuł',
+        Header: 'Title',
         accessor: 'title',
       },
       {
-        Header: 'Data',
+        Header: 'Date',
         accessor: 'date',
         Cell: (date) => (
           <span>{new Date(date.value as string).toLocaleDateString()}</span>
         ),
       },
       {
-        Header: 'Autor',
+        Header: 'Author',
         accessor: 'author',
       },
       {
-        Header: 'Akcja',
+        Header: 'Actions',
         accessor: 'type',
         disableFilters: true,
         Cell: (type) =>
@@ -60,7 +60,7 @@ export const CommentTable = ({
               className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => mutate(commentId as string)}
             >
-              Negatywny
+              Negative
             </button>
           ) : (
             <button
@@ -68,7 +68,7 @@ export const CommentTable = ({
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => mutate(commentId as string)}
             >
-              Pozytywny
+              Positive
             </button>
           ),
       },

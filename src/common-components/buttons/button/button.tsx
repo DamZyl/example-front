@@ -18,7 +18,7 @@ export const Button = ({
   <button
     type={type}
     className={clsx([
-      'w-full p-4 pr-12 mt-4 text-sm font-medium text-white bg-blue-500 rounded-lg',
+      'w-full p-4 mt-4 text-sm font-medium text-white bg-blue-500 rounded-lg text-center',
       disabled && ' bg-gray-500',
     ])}
     disabled={disabled}

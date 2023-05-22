@@ -29,7 +29,7 @@ export const CommentTableScreen = () => {
     <div className="flex flex-col">
       <div className="flex flex-row gap-4 pt-4">
         <h1 className="text-2xl leading-none font-bold text-gray-900 self-center">
-          Komentarze ({amountOfData})
+          Comments ({amountOfData})
         </h1>
       </div>
       <CommentTable
