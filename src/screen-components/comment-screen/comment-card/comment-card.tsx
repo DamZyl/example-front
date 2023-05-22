@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import React from 'react';
 import { CommentViewModel } from '../../../api-types/api';
+import { CommentType } from '../../../utils/constants';
 
 interface CommentCardProps {
   comment: CommentViewModel;
@@ -13,8 +14,8 @@ export const CommentCard = ({ comment }: CommentCardProps) => (
     key={comment.id}
     className={clsx([
       'flex flex-col w-10/12 mx-auto px-16 py-10 text-center rounded-lg mt-4',
-      comment.type === 'Pozytywny' && 'bg-green-100',
-      comment.type === 'Negatywny' && 'bg-red-100',
+      comment.type === CommentType.Positive && 'bg-green-100',
+      comment.type === CommentType.Negative && 'bg-red-100',
     ])}
   >
     <div className="flex flex-row justify-between gap-4">

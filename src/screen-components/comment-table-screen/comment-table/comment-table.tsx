@@ -10,6 +10,7 @@ import {
 } from '../../../common-components/table-container/table-container';
 import useMutationUpdateComment from '../../../data-access-layer/mutations/use-mutation-update-comment';
 import useQueryGetComments from '../../../data-access-layer/queries/use-query-get-comments';
+import { CommentType } from '../../../utils/constants';
 
 type CommentTableProps = {
   handleAmountOfData: (total: number | undefined) => void;
@@ -54,7 +55,7 @@ export const CommentTable = ({
         accessor: 'type',
         disableFilters: true,
         Cell: (type) =>
-          type.value === 'Negatywny' ? (
+          type.value === CommentType.Negative ? (
             <button
               type="button"
               className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
