@@ -23,6 +23,8 @@ export const CommentTableScreen = () => {
     setRowSelection(models);
   };
 
+  console.log(rowSelection);
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-row gap-4 pt-4">

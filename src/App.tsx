@@ -12,11 +12,13 @@ import {
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster, toast } from 'react-hot-toast';
+import { ErrorBoundary } from 'react-error-boundary';
 import { Layout } from './common-components/layout/layout';
 import { CommentScreen } from './screen-components/comment-screen/comment-screen';
 import { CommentTableScreen } from './screen-components/comment-table-screen/comment-table-screen';
 import { ErrorsScreen } from './screen-components/errors-screen/errors-screen';
 import { handleErrorMessage } from './utils/functions/errors-type-guards';
+import { DialogManager } from './contexts/dialog-context';
 
 const App = () => {
   const [queryClient] = useState(
@@ -38,16 +40,26 @@ const App = () => {
       <ReactQueryDevtools />
       <div className="h-screen">
         <Toaster position="bottom-center" containerClassName="ml-64" />
-        <Router>
-          <Layout>
-            <Routes>
-              <Route path="/comments" element={<CommentScreen />} />
-              <Route path="/table-comments" element={<CommentTableScreen />} />
-              <Route path="/errors" element={<ErrorsScreen />} />
-              <Route path="*" element={<Navigate to="/comments" replace />} />
-            </Routes>
-          </Layout>
-        </Router>
+        <ErrorBoundary fallback={<div>Something went wrong</div>}>
+          <DialogManager>
+            <Router>
+              <Layout>
+                <Routes>
+                  <Route path="/comments" element={<CommentScreen />} />
+                  <Route
+                    path="/table-comments"
+                    element={<CommentTableScreen />}
+                  />
+                  <Route path="/errors" element={<ErrorsScreen />} />
+                  <Route
+                    path="*"
+                    element={<Navigate to="/comments" replace />}
+                  />
+                </Routes>
+              </Layout>
+            </Router>
+          </DialogManager>
+        </ErrorBoundary>
       </div>
     </QueryClientProvider>
   );
