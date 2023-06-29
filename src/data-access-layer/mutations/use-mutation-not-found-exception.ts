@@ -8,9 +8,6 @@ export function useMutationNotFoundException() {
     {
       mutationKey: [MutationKeys.NotFoundException],
       onSuccess: () => {},
-      onError: (error) => {
-        console.log('NotFoundException');
-      },
     },
   );
   return mutation;

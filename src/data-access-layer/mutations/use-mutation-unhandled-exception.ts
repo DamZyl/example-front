@@ -8,9 +8,6 @@ export function useMutationUnhandledException() {
     {
       mutationKey: [MutationKeys.UnhandledException],
       onSuccess: () => {},
-      onError: (error) => {
-        console.log('UnhandledException');
-      },
     },
   );
   return mutation;

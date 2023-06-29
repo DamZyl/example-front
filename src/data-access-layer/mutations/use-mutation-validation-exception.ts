@@ -8,9 +8,6 @@ export function useMutationValidationException() {
     {
       mutationKey: [MutationKeys.ValidationException],
       onSuccess: () => {},
-      onError: (error) => {
-        console.log('ValidationException');
-      },
     },
   );
   return mutation;
