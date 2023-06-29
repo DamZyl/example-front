@@ -195,11 +195,10 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionInternalPost: async (createCommentInput?: CreateCommentInput, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        commentExceptionInternalPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/Comment/Exception/Internal`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -214,12 +213,9 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createCommentInput, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -228,11 +224,10 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionNotFoundPost: async (createCommentInput?: CreateCommentInput, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        commentExceptionNotFoundPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/Comment/Exception/NotFound`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -247,12 +242,9 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createCommentInput, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -261,11 +253,10 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionUnhandledPost: async (createCommentInput?: CreateCommentInput, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        commentExceptionUnhandledPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/Comment/Exception/Unhandled`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -280,12 +271,9 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createCommentInput, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -294,11 +282,10 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionValidationPost: async (createCommentInput?: CreateCommentInput, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        commentExceptionValidationPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/Comment/Exception/Validation`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -313,12 +300,9 @@ export const CommentApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createCommentInput, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -442,42 +426,38 @@ export const CommentApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async commentExceptionInternalPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateCommentViewModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionInternalPost(createCommentInput, options);
+        async commentExceptionInternalPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionInternalPost(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async commentExceptionNotFoundPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateCommentViewModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionNotFoundPost(createCommentInput, options);
+        async commentExceptionNotFoundPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionNotFoundPost(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async commentExceptionUnhandledPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateCommentViewModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionUnhandledPost(createCommentInput, options);
+        async commentExceptionUnhandledPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionUnhandledPost(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async commentExceptionValidationPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateCommentViewModel>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionValidationPost(createCommentInput, options);
+        async commentExceptionValidationPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commentExceptionValidationPost(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -530,39 +510,35 @@ export const CommentApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionInternalPost(createCommentInput?: CreateCommentInput, options?: any): AxiosPromise<CreateCommentViewModel> {
-            return localVarFp.commentExceptionInternalPost(createCommentInput, options).then((request) => request(axios, basePath));
+        commentExceptionInternalPost(options?: any): AxiosPromise<void> {
+            return localVarFp.commentExceptionInternalPost(options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionNotFoundPost(createCommentInput?: CreateCommentInput, options?: any): AxiosPromise<CreateCommentViewModel> {
-            return localVarFp.commentExceptionNotFoundPost(createCommentInput, options).then((request) => request(axios, basePath));
+        commentExceptionNotFoundPost(options?: any): AxiosPromise<void> {
+            return localVarFp.commentExceptionNotFoundPost(options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionUnhandledPost(createCommentInput?: CreateCommentInput, options?: any): AxiosPromise<CreateCommentViewModel> {
-            return localVarFp.commentExceptionUnhandledPost(createCommentInput, options).then((request) => request(axios, basePath));
+        commentExceptionUnhandledPost(options?: any): AxiosPromise<void> {
+            return localVarFp.commentExceptionUnhandledPost(options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {CreateCommentInput} [createCommentInput] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        commentExceptionValidationPost(createCommentInput?: CreateCommentInput, options?: any): AxiosPromise<CreateCommentViewModel> {
-            return localVarFp.commentExceptionValidationPost(createCommentInput, options).then((request) => request(axios, basePath));
+        commentExceptionValidationPost(options?: any): AxiosPromise<void> {
+            return localVarFp.commentExceptionValidationPost(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -613,46 +589,42 @@ export class CommentApi extends BaseAPI {
 
     /**
      * 
-     * @param {CreateCommentInput} [createCommentInput] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CommentApi
      */
-    public commentExceptionInternalPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig) {
-        return CommentApiFp(this.configuration).commentExceptionInternalPost(createCommentInput, options).then((request) => request(this.axios, this.basePath));
+    public commentExceptionInternalPost(options?: AxiosRequestConfig) {
+        return CommentApiFp(this.configuration).commentExceptionInternalPost(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {CreateCommentInput} [createCommentInput] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CommentApi
      */
-    public commentExceptionNotFoundPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig) {
-        return CommentApiFp(this.configuration).commentExceptionNotFoundPost(createCommentInput, options).then((request) => request(this.axios, this.basePath));
+    public commentExceptionNotFoundPost(options?: AxiosRequestConfig) {
+        return CommentApiFp(this.configuration).commentExceptionNotFoundPost(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {CreateCommentInput} [createCommentInput] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CommentApi
      */
-    public commentExceptionUnhandledPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig) {
-        return CommentApiFp(this.configuration).commentExceptionUnhandledPost(createCommentInput, options).then((request) => request(this.axios, this.basePath));
+    public commentExceptionUnhandledPost(options?: AxiosRequestConfig) {
+        return CommentApiFp(this.configuration).commentExceptionUnhandledPost(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {CreateCommentInput} [createCommentInput] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CommentApi
      */
-    public commentExceptionValidationPost(createCommentInput?: CreateCommentInput, options?: AxiosRequestConfig) {
-        return CommentApiFp(this.configuration).commentExceptionValidationPost(createCommentInput, options).then((request) => request(this.axios, this.basePath));
+    public commentExceptionValidationPost(options?: AxiosRequestConfig) {
+        return CommentApiFp(this.configuration).commentExceptionValidationPost(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

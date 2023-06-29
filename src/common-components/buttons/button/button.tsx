@@ -1,19 +1,18 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 import clsx from 'clsx';
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 type ButtonProps = {
   text: string;
-} & React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = ({
   text,
   disabled = false,
   type = 'button',
+  ...rest
 }: ButtonProps) => (
   <button
     type={type}
@@ -22,6 +21,7 @@ export const Button = ({
       disabled && ' bg-gray-500',
     ])}
     disabled={disabled}
+    {...rest}
   >
     {text}
   </button>

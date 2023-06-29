@@ -2,9 +2,15 @@ import React from 'react';
 import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 
-const navigation = [
+interface Navigation {
+  name: string;
+  path: string;
+}
+
+const navigation: Navigation[] = [
   { name: 'Comments', path: '/comments' },
   { name: 'Table', path: '/table-comments' },
+  { name: 'Errors', path: 'errors' },
 ];
 
 export const SideNav = () => (

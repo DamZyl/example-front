@@ -4,7 +4,6 @@ import { useMutationNotFoundException } from '../../../data-access-layer/mutatio
 import { useMutationValidationException } from '../../../data-access-layer/mutations/use-mutation-validation-exception';
 import { useMutationUnhandledException } from '../../../data-access-layer/mutations/use-mutation-unhandled-exception';
 import { Button } from '../../../common-components/buttons/button/button';
-import { mockCreateCommentInput } from '../../../utils/constants';
 
 export const ButtonsSection = () => {
   const { mutate: triggerValidationException } =
@@ -17,19 +16,20 @@ export const ButtonsSection = () => {
     <div className="flex flex-row justify-center gap-6">
       <Button
         text="Validation exception"
-        onClick={() => triggerValidationException(mockCreateCommentInput)}
+        onClick={() => triggerValidationException()}
       />
       <Button
         text="Not found exception"
-        onClick={() => triggerNotFoundException(mockCreateCommentInput)}
+        onClick={() => triggerNotFoundException()}
       />
       <Button
+        type="button"
         text="Server exception"
-        onClick={() => triggerServerException(mockCreateCommentInput)}
+        onClick={() => triggerServerException()}
       />
       <Button
         text="Unhandled exception"
-        onClick={() => triggerUnhandledException(mockCreateCommentInput)}
+        onClick={() => triggerUnhandledException()}
       />
     </div>
   );
