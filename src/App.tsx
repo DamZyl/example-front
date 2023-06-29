@@ -16,6 +16,7 @@ import { Layout } from './common-components/layout/layout';
 import { CommentScreen } from './screen-components/comment-screen/comment-screen';
 import { CommentTableScreen } from './screen-components/comment-table-screen/comment-table-screen';
 import { ErrorsScreen } from './screen-components/errors-screen/errors-screen';
+import { handleErrorMessage } from './utils/errors-type-guards';
 
 const App = () => {
   const [queryClient] = useState(
@@ -25,9 +26,8 @@ const App = () => {
           onError: (error, _variables, _context, mutation) => {
             if (mutation.options.onError) return;
 
-            if (axios.isAxiosError(error)) {
-              console.log(error.message);
-            }
+            const errorMessage = handleErrorMessage(error);
+            console.log(errorMessage);
           },
         }),
       }),
