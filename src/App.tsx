@@ -11,12 +11,12 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import axios from 'axios';
+import { Toaster, toast } from 'react-hot-toast';
 import { Layout } from './common-components/layout/layout';
 import { CommentScreen } from './screen-components/comment-screen/comment-screen';
 import { CommentTableScreen } from './screen-components/comment-table-screen/comment-table-screen';
 import { ErrorsScreen } from './screen-components/errors-screen/errors-screen';
-import { handleErrorMessage } from './utils/errors-type-guards';
+import { handleErrorMessage } from './utils/functions/errors-type-guards';
 
 const App = () => {
   const [queryClient] = useState(
@@ -27,7 +27,7 @@ const App = () => {
             if (mutation.options.onError) return;
 
             const errorMessage = handleErrorMessage(error);
-            console.log(errorMessage);
+            toast.error(errorMessage);
           },
         }),
       }),
@@ -37,6 +37,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
       <div className="h-screen">
+        <Toaster position="bottom-center" containerClassName="ml-64" />
         <Router>
           <Layout>
             <Routes>

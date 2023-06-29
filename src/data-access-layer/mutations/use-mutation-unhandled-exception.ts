@@ -1,9 +1,9 @@
-import { useMutation } from '@tanstack/react-query';
 import { MutationKeys } from '../mutation-keys';
 import { commentApi } from '../api-client';
+import { useMutationWithErrorHandling } from '../../utils/hooks/use-mutation-with-error-handling';
 
 export function useMutationUnhandledException() {
-  const mutation = useMutation(
+  const mutation = useMutationWithErrorHandling(
     () => commentApi.commentExceptionUnhandledPost(),
     {
       mutationKey: [MutationKeys.UnhandledException],

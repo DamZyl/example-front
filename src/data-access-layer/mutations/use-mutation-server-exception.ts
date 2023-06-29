@@ -1,16 +1,13 @@
-import { useMutation } from '@tanstack/react-query';
 import { MutationKeys } from '../mutation-keys';
 import { commentApi } from '../api-client';
+import { useMutationWithErrorHandling } from '../../utils/hooks/use-mutation-with-error-handling';
 
 export function useMutationServerException() {
-  const mutation = useMutation(
+  const mutation = useMutationWithErrorHandling(
     () => commentApi.commentExceptionInternalPost(),
     {
       mutationKey: [MutationKeys.ServerException],
       onSuccess: () => {},
-      onError: (error) => {
-        console.log('ServerException');
-      },
     },
   );
   return mutation;
